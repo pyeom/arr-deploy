@@ -124,7 +124,18 @@ services:
       restart: unless-stopped
 ```
 
-Run the script:
+Spin up the containers:
 ```
 docker compose up -d
 ```
+
+### Configure qbittorrent:
+- Retrieve the randomly generated password
+```
+docker logs qbittorrent
+```
+- Enter: <my_ip>:8080 and login with `admin/password`, navigate to settings -> Web UI and change the password
+
+### Configure prowlarr:
+- Create a tag for flaresolverr and then add indexers
+- Configure the rest of the arr apps
