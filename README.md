@@ -1,6 +1,25 @@
 # arr-deploy
 Deploy Arr Stack, no VPN (Not recommended)
 
+## Install cockpit (Users/Group UI manager for Linux)
+
+```
+apt install --no-install-recommends cockpit -y
+```
+
+```
+apt install wsdd
+```
+
+- Install this add-ons for cockpit (donload with wget):
+  - [File-sharing](https://github.com/45Drives/cockpit-file-sharing/releases)
+  - [Identities](https://github.com/45Drives/cockpit-file-sharing/releases)
+  - [Navigator](https://github.com/45Drives/cockpit-file-sharing/releases)
+
+```
+apt install ./*.deb
+```
+Do all the user and group config, also the smb shares.
 
 ## Compose file
 ```
