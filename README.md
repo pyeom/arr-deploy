@@ -90,6 +90,19 @@ services:
     ports:
       - "${PORT:-8191}:8191"
     restart: unless-stopped
+  overseerr:
+      image: lscr.io/linuxserver/overseerr:latest
+      container_name: overseerr
+      environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=America/Santiago
+      volumes:
+        - /docker/overseer/config:/config
+        - /data:/data
+      ports:
+        - 5055:5055
+      restart: unless-stopped
 ```
 
 Run the script:
