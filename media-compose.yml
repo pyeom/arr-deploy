@@ -1,5 +1,4 @@
 ---
-
 services:
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:latest
@@ -84,4 +83,18 @@ services:
       - TZ=America/Santiago
     ports:
       - "${PORT:-8191}:8191"
+    restart: unless-stopped
+  jellyseer:
+    image: ghcr.io/fallenbagel/jellyseerr:latest
+    init: true
+    container_name: jellyseerr
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=America/Santiago
+      - PORT=5055 #optional
+    ports:
+      - 5055:5055
+    volumes:
+      - /docker/jellyseer:/config
+      - /data:/data
     restart: unless-stopped
